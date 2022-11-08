@@ -1,0 +1,24 @@
+/*[ FONT SIZE ]
+///////////////////////////////////////////////////////////
+*/
+
+/*[ PADDING ]
+///////////////////////////////////////////////////////////
+*/
+.p-t-8 {padding-top: 8px;}
+.p-t-54 {padding-top: 54px;}
+.p-b-30 {padding-bottom: 30px;}
+.p-b-31 {padding-bottom: 31px;}
+.p-b-54 {padding-bottom: 54px;}
+.p-l-55 {padding-left: 55px;}
+.p-r-55 {padding-right: 55px;}
+
+/*[ MARGIN ]
+///////////////////////////////////////////////////////////
+*/
+.m-b-23 {margin-bottom: 23px;}
+
+/* ------------------------------------ */
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
