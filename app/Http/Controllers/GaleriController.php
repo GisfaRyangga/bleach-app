@@ -46,4 +46,10 @@ class GaleriController extends Controller
         $galeri->save();
         return redirect('/galeri')->with('pesan', 'Data Galeri Buku Berhasil disimpan');
     }
+
+    public function destroy($id){
+        $buku = Buku::all();
+        $buku->delete();
+        return redirect('/galeri')->with('hapus', 'Data buku berhasil di hapus');
+    }
 }

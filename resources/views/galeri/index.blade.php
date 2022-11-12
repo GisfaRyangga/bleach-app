@@ -1,8 +1,13 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+        crossorigin="anonymous">
 <table class="table table-stripted" border="1">
     <thead>
         <tr>
             <th>No</th>
-            <th>Judul Buku</th>
+            <th>Judul</th>
+            <th>Buku</th>
             <th>Keterangan</th>
             <th>Foto</th>
             <th>Aksi</th>
@@ -14,7 +19,8 @@
             <td>{{ ++$no }}</td>
             <td>{{ $data->nama_galeri }}</td>
             {{-- @foreach ($buku as $bukus) --}}
-            <td>{{ $data->$album->judul }}</td>
+            <td>{{ $data->album->judul }}</td>
+            <td>{{ $data->keterangan }}</td>
             {{-- @endforeach --}}
             <td><img src="{{ asset('thumb/'.$data->foto) }}" style="width: 100px"></td>
             <td>
@@ -31,5 +37,6 @@
     </tbody>
 </table>
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+crossorigin="anonymous"></script>

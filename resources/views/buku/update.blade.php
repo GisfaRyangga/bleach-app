@@ -2,7 +2,11 @@
 
 @section('content')
 
-<div class="container">
+@section('style')
+<link rel="stylesheet" href="{{ asset('css/buku.css') }}">
+@endsection
+
+<div class="container mt-4 login-form-100">
     <h4>Update Buku</h4>
     <form method="post" action="{{ route('buku.update', $buku->id) }}">
     @csrf
@@ -18,3 +22,5 @@
         </div>
     </form>
 </div>
+
+@endsection
