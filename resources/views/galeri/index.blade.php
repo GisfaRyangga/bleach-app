@@ -32,7 +32,6 @@
             </td>
         </tr>
         @endforeach
-        
     </tbody>
 </table>
 <p align="center"><a href="{{ route('galeri.create') }}">Tambah Buku</a></p>
