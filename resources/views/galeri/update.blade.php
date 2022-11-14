@@ -4,11 +4,11 @@
         crossorigin="anonymous">
 
 <div class="m-3">
-    <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('galeri.update', $data->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-3">
             <label for="nama_galeri">Judul</label>
-            <input type="text" class="form-control" name="nama_galeri">
+            <input type="text" class="form-control" name="nama_galeri" value="{{ $data->nama_galeri }}">
         </div>
         <div class="form-group mb-3">
             <label for="id_buku">Buku</label>
@@ -21,11 +21,11 @@
         </div>
         <div class="form-group mb-3">
             <label for="keterangan">Keterangan</label>
-            <textarea name="keterangan" class="form-control"></textarea>
+            <textarea name="keterangan" class="form-control" value="{{ $data->keterangan }}"></textarea>
         </div>
         <div class="form-group mb-3">
             <label for="foto">Upload Foto</label>
-            <input type="file" class="form-control" name="foto">
+            <input  type="file" name="foto" id="formFileMultiple" multiple class="form-control">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success">Simpan</button>
@@ -34,8 +34,6 @@
     </form>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
 crossorigin="anonymous"></script>
-

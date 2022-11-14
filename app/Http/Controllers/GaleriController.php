@@ -16,7 +16,6 @@ class GaleriController extends Controller
         $batas = 4;
         $no = 0;
         $galeri = Galeri::orderBy('id', 'desc')->paginate($batas); 
-        // dd($buku);
         return view('galeri.index', compact('galeri', 'no', 'buku'));
     }
 
@@ -48,8 +47,31 @@ class GaleriController extends Controller
     }
 
     public function destroy($id){
+        $galeri = Galeri::find($id);
+        $galeri->delete();
+        return redirect('/galeri')->with('hapus', 'Data berhasil dihapus');
+    }
+
+    public function update(Request $request, $id) {
+        $galeri = Galeri::find($id);
+        $galeri->nama_galeri = $request->nama_galeri;
+        $galeri->keterangan = $request->keterangan;
+        $galeri->id_buku = $request->id_buku;
+
+        $foto = $request->foto;
+        $namafile = time().'.'.$foto->getClientOriginalExtension();
+
+        Image::make($foto) -> resize(200,150)->save('thumb/'.$namafile);
+        $foto->move('public/images/', $namafile);
+
+        $galeri->foto = $namafile;
+        $galeri->save();
+        return redirect('/galeri');
+    }
+
+    public function edit($id) {
+        $data = Galeri::find($id);
         $buku = Buku::all();
-        $buku->delete();
-        return redirect('/galeri')->with('hapus', 'Data buku berhasil di hapus');
+        return view('galeri.update', compact('data', 'buku'));
     }
 }
