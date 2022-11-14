@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +12,5 @@ class Galeri extends Model
     public function album(){
         return $this->belongsTo('App\Models\Buku', 'id_buku', 'id');
     }
-
 }
 

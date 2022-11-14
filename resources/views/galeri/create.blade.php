@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
@@ -7,7 +11,7 @@
     <form action="{{ route('galeri.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group mb-3">
-            <label for="nama_galeri">Judul</label>
+            <label for="nama_galeri">Nama Galeri</label>
             <input type="text" class="form-control" name="nama_galeri">
         </div>
         <div class="form-group mb-3">
@@ -39,3 +43,4 @@
 integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
 crossorigin="anonymous"></script>
 
+@endsection

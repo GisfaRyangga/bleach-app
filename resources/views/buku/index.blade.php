@@ -27,9 +27,9 @@
             <th>Penulis</th>
             <th>Harga</th>
             <th>Tgl. Terbit</th>
-            @if(Auth::check() && Auth::user()->level == 'admin')
+            {{-- @if(Auth::check() && Auth::user()->level == 'admin') --}}
             <th>Aksi</th>
-            @endif
+            {{-- @endif --}}
         </tr>
     </thead>
     <tbody>
@@ -60,8 +60,6 @@
 
 <div>{{ $data_buku->links() }}</div>
 <div><strong>Jumlah Buku: {{ $jumlah_buku }}</strong></div>
-
-
 
 <br>
 <h4>Jumlah Total Data yang Dimiliki : {{ $buku->count('id') }}</h4>

@@ -10,6 +10,11 @@ use Image;
 
 class GaleriController extends Controller
 {
+
+    public function __construct()    {
+        $this->middleware('auth');
+    }
+
     //fungsi index
     public function index(){
         $buku = Buku::all();
@@ -49,7 +54,7 @@ class GaleriController extends Controller
     public function destroy($id){
         $galeri = Galeri::find($id);
         $galeri->delete();
-        return redirect('/galeri')->with('hapus', 'Data berhasil dihapus');
+        return redirect('/galeri')->with('hapus', 'Data Galeri Buku Berhasil dihapus');
     }
 
     public function update(Request $request, $id) {

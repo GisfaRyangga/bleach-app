@@ -1,7 +1,8 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-        crossorigin="anonymous">
+@extends('layouts.app')
+
+@section('content')
+
+@if(Auth::check() && Auth::user()->level == 'admin')
 <table class="table table-stripted" border="1">
     <thead>
         <tr>
@@ -10,7 +11,9 @@
             <th>Judul</th>
             <th>Keterangan</th>
             <th>Foto</th>
+            {{-- @if(Auth::check() && Auth::user()->level == 'admin') --}}
             <th>Aksi</th>
+            {{-- @endif --}}
         </tr>
     </thead>
     <tbody>
@@ -21,6 +24,7 @@
             <td>{{ $data->album->judul }}</td>
             <td>{{ $data->keterangan }}</td>
             <td><img src="{{ asset('thumb/'.$data->foto) }}" style="width: 100px"></td>
+            {{-- @if(Auth::check() && Auth::user()->level == 'admin') --}}
             <td>
                 <form action="{{ route('galeri.destroy', $data->id) }}" method="post">
                 @csrf
@@ -30,12 +34,12 @@
                     <i class="fa fa-times"></i> Hapus </button>
                 </form>
             </td>
+            {{-- @endif --}}
         </tr>
         @endforeach
     </tbody>
 </table>
 <p align="center"><a href="{{ route('galeri.create') }}">Tambah Buku</a></p>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-crossorigin="anonymous"></script>
+@endif
+@endsection
