@@ -10,7 +10,7 @@ class Galeri extends Model
     protected $fillable = ['nama_galeri'];
 
     public function album(){
-        return $this->belongsTo('App\Models\Buku', 'id_buku', 'id');
+        return $this->belongsTo(Buku::class, 'id_buku', 'id');
     }
 }
 

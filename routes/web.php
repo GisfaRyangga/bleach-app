@@ -101,3 +101,5 @@ Route::post('/galeri', [GaleriController::class, 'store'])->name('galeri.store')
 Route::get('/galeri/edit/{id}', [GaleriController::class, 'edit'])->name('galeri.edit');
 Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
 Route::post('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
+
+Route::get('/detail_buku/{bukuSeo}', [BukuController::class, 'galbuku'])->name('buku.detail_buku');

@@ -1,8 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Buku;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class BukuController extends Controller
 {
@@ -46,6 +47,7 @@ class BukuController extends Controller
         $buku->judul = $request->judul;
         $buku->penulis = $request->penulis;
         $buku->harga = $request->harga;
+        $buku->buku_seo = Str::slug($request->judul, '-');
         $buku->tgl_terbit = $request->tgl_terbit;
         $buku-> save();
         return redirect('/buku')->with('tambah', 'Data buku berhasil di simpan');
@@ -71,5 +73,11 @@ class BukuController extends Controller
             'tgl_terbit'=>$request->tgl_terbit
        ]);
         return redirect('/buku')->with('edit', 'Data buku berhasil di simpan');
+    }
+
+    public function galbuku($bukuSeo){
+        $bukus = Buku::where('buku_seo', $bukuSeo)->first();
+        $galeris = $bukus->photos()->orderBy('id', 'desc')->paginate(6);
+        return view('buku.detail_buku', compact('bukus', 'galeris'));
     }
 }
