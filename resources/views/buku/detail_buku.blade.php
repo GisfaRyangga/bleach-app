@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="/css/lightbox.css">
 <script src="/js/lightbox.js"></script>
 
-
 <section id="album" class="py-1 text-center bg-light">
     <div class="container">
         <h2>Buku:  {{ $bukus->judul }}</h2>

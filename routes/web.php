@@ -96,7 +96,7 @@ Route::get('/user', [UserController::class, 'index'])->name('user.index');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/galeri', [GaleriController::class, 'index']);
-Route::get('/galeri/create', [GaleriController::class, 'create'])->name('galeri.create');
+Route::get('/galeri/create', [GaleriController::class, 'create'])->name('galeri.create');   
 Route::post('/galeri', [GaleriController::class, 'store'])->name('galeri.store');
 Route::get('/galeri/edit/{id}', [GaleriController::class, 'edit'])->name('galeri.edit');
 Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('galeri.update');
