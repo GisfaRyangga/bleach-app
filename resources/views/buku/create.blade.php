@@ -16,14 +16,24 @@
     
     <form method="post" action="{{ route('buku.store') }}">
     @csrf
-        <div>Judul <input type="text" name="judul"></div>
-        <div>Penulis <input type="text" name="penulis"></div>
-        <div>Harga <input type="text" name="harga"></div>
-        <div>Tgl. Terbit 
+        <div class="form-group mb-3">
+            <label for="judul">Judul</label>
+            <input type="text" name="judul">
+        </div>
+        <div class="form-group mb-3">
+            <label for="penulis">Penulis</label>
+            <input type="text" name="penulis">
+        </div>
+        <div class="form-group mb-3">
+            <label for="harga">Harga</label>
+            <input type="text" name="harga">
+        </div>
+        <div class="form-group mb-3">
+            <label for="tgl_terbit">Tgl. Terbit</label>
             <input type="date" id="datepicker" name="tgl_terbit" class="date form-control" placeholder="yyyy/mm/dd">
         </div>
         <div>
-            <button type="submit">Simpan</button>
+            <button type="submit" class="btn btn-success">Simpan</button>
             <a href="/buku">Batal</a>
         </div>
     </form>
