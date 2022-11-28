@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.app')
 
 @section('content')
 
@@ -34,7 +34,7 @@
         </div>
         <div>
             <button type="submit" class="btn btn-success">Simpan</button>
-            <a href="/buku">Batal</a>
+            <a href="/buku" class="btn btn-danger">Batal</a>
         </div>
     </form>
 </div>
