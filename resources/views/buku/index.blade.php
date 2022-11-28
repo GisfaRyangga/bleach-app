@@ -19,10 +19,18 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-<form action="{{ route('buku.search') }}" method="get">@csrf
-    <input type="text" name="kata" class="form-control" placeholder="Cari ..." 
-    style="display:inline; width: 30%; margin-top:10px; margin-bottom:15px; float:right;">
-</form>
+<div>
+    <p align="center">
+        <a href="{{ route('buku.create') }}">
+            <button class="btn btn-primary">Tambah Buku</button>
+        </a>
+    </p>
+    <form action="{{ route('buku.search') }}" method="get">@csrf
+        <input type="text" name="kata" class="form-control" placeholder="Cari ..." 
+        style="display:inline; width: 30%; margin-top:10px; margin-bottom:15px; float:right;">
+    </form>
+</div>
+
 
 <table class="table table-stripted" border="1">
     <thead>
@@ -67,7 +75,7 @@
         @endforeach
     </tbody>
 </table>
-<p align="center"><a href="{{ route('buku.create') }}"><button class="btn btn-primary">Tambah Buku</button></a></p>
+
 {{-- 
 <div>{{ $data_buku->links() }}</div>
 <div><strong>Jumlah Buku: {{ $jumlah_buku }}</strong></div>
