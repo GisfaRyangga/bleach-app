@@ -18,15 +18,15 @@
     @csrf
         <div class="form-group mb-3">
             <label for="judul">Judul</label>
-            <input type="text" name="judul">
+            <input type="text" class="form-control" name="judul">
         </div>
         <div class="form-group mb-3">
             <label for="penulis">Penulis</label>
-            <input type="text" name="penulis">
+            <input type="text" class="form-control" name="penulis">
         </div>
         <div class="form-group mb-3">
             <label for="harga">Harga</label>
-            <input type="text" name="harga">
+            <input type="text" class="form-control" name="harga">
         </div>
         <div class="form-group mb-3">
             <label for="tgl_terbit">Tgl. Terbit</label>
