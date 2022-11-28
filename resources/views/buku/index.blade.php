@@ -68,13 +68,13 @@
     </tbody>
 </table>
 <p align="center"><a href="{{ route('buku.create') }}"><button class="btn btn-primary">Tambah Buku</button></a></p>
-
+{{-- 
 <div>{{ $data_buku->links() }}</div>
 <div><strong>Jumlah Buku: {{ $jumlah_buku }}</strong></div>
 
 <br>
 <h4>Jumlah Total Data yang Dimiliki : {{ $buku->count('id') }}</h4>
-<h4>Jumlah Total Harga Semua Buku : {{ "Rp ".number_format($buku->sum('harga')) }}</h4>
+<h4>Jumlah Total Harga Semua Buku : {{ "Rp ".number_format($buku->sum('harga')) }}</h4> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
