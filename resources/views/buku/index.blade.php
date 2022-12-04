@@ -33,6 +33,7 @@
             <th>Penulis</th>
             <th>Harga</th>
             <th>Tgl. Terbit</th>
+            <th>Suka</th>
             {{-- @if(Auth::check() && Auth::user()->level == 'admin') --}}
             <th>Aksi</th>
             {{-- @endif --}}
@@ -46,11 +47,20 @@
                 <td>{{ $buku->penulis }}</td>
                 <td>{{ "Rp ".number_format($buku->harga, 0, ',', '.') }}</td>
                 <td>{{ $buku->tgl_terbit->format('d/m/Y') }}</td>
+                <td>
+                    <form action="{{ route('like.buku', $buku->id) }}" method="POST" >
+                        @csrf
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fa fa-thumbs-up"> </i> Like
+                            <span class="badge badge-light"> {{ $buku->suka }} </span>
+                        </button>
+                    </form>
+                </td>   
                 @if(Auth::check() && Auth::user()->level == 'admin')
                 <td>
                     <div class="d-flex gap-2">
                         <a href="{{ route('buku.detail_buku', $buku->buku_seo)}}">
-                            <button class="btn btn-primary">Detail</button>
+                            <button class="btn btn-success">Detail</button>
                         </a>
                         <a href="{{ route('buku.edit', $buku->id)}}">
                             <button class="btn btn-primary">Update</button>
@@ -74,7 +84,7 @@
     </a>
 </p>
 {{-- 
-<div>{{ $data_buku->links() }}</div>
+<div>{{ $data_buku->lisnks() }}</div>
 <div><strong>Jumlah Buku: {{ $jumlah_buku }}</strong></div>
 
 <br>

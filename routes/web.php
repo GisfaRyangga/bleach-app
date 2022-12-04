@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\KomentarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,3 +104,7 @@ Route::post('/galeri/update/{id}', [GaleriController::class, 'update'])->name('g
 Route::post('/galeri/destroy/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy');
 
 Route::get('/detail_buku/{bukuSeo}', [BukuController::class, 'galbuku'])->name('buku.detail_buku');
+
+Route::post('/buku/like/{id}', [BukuController::class, 'likebuku'])->name('like.buku');
+
+Route::post('/komentar/{bukuId}', [KomentarController:: class, 'add_comment'])->name('komentar.add_comment');

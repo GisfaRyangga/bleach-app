@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\Komentar;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -49,6 +51,7 @@ class BukuController extends Controller
         $buku->harga = $request->harga;
         $buku->buku_seo = Str::slug($request->judul, '-');
         $buku->tgl_terbit = $request->tgl_terbit;
+        $buku->suka = 0;
         $buku-> save();
         return redirect('/buku')->with('tambah', 'Data buku berhasil di simpan');
     }
@@ -78,6 +81,26 @@ class BukuController extends Controller
     public function galbuku($bukuSeo){
         $bukus = Buku::where('buku_seo', $bukuSeo)->first();
         $galeris = $bukus->photos()->orderBy('id', 'desc')->paginate(6);
-        return view('buku.detail_buku', compact('bukus', 'galeris'));
+        $komentar = Komentar::all()->where('id_buku', $bukus->id);
+        $users = User::all();
+        return view('buku.detail_buku', compact('bukus', 'galeris', 'komentar', 'users'));
+    }
+
+    public function likebuku(Request $request, $id){
+        $buku = Buku::find($id);
+        $buku->increment('suka');
+        return back();
+    }
+
+    public function add_comment(Request $request, $id){
+        $this->validate($request,[
+            'comment' => 'required|string',
+        ]);
+        $komentar = new Komentar;
+        $komentar -> comment = $request->comment;
+        $komentar -> id_buku = $id;
+        $komentar -> id_user = Auth::user()->id;
+        $komentar -> save();
+        return back();
     }
 }
