@@ -39,19 +39,29 @@
     </form> --}}
 </section>
 <section class="container-xl">
-    <form action="{{ route('komentar.add_comment', $bukus->id) }}" method="POST">
-      @csrf
-      <div class="my-3">
+<form action="{{ route('komentar.add_comment', $bukus->id) }}" method="POST">
+    @csrf
+    <div class="my-3">
         <label for="komentar" class="form-label">Komentar</label>
         <textarea class="form-control @error('komentar') is-invalid @enderror" id="komentar" placeholder="Isi komentar anda di sini" name="komentar" rows="3"></textarea>
         @error('komentar')
         <div class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </div>@enderror
-      </div>
-      <button type="submit" class="btn btn-primary">Post</button>
-    </form>
-    <a href="/buku" class="btn btn-warning mt-3">Kembali</a>
-  </section>
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>
+<a href="/buku" class="btn btn-warning mt-3">Kembali</a>
+</section>
+<section class="container mb-3">
+    @foreach($allKomentar as $all_komen)
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ $all_komen->user->name }}</h5>
+            <p class="card-text">{{ $all_komen->comment }}</p>
+        </div>
+    </div>
+    @endforeach
+</section>
 
 @endsection

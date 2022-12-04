@@ -6,6 +6,7 @@ use App\Models\Komentar;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BukuController extends Controller
 {
@@ -83,7 +84,8 @@ class BukuController extends Controller
         $galeris = $bukus->photos()->orderBy('id', 'desc')->paginate(6);
         $komentar = Komentar::all()->where('id_buku', $bukus->id);
         $users = User::all();
-        return view('buku.detail_buku', compact('bukus', 'galeris', 'komentar', 'users'));
+        $allKomentar = $bukus->komen()->paginate(10);
+        return view('buku.detail_buku', compact('bukus', 'galeris', 'komentar', 'users', 'allKomentar'));
     }
 
     public function likebuku(Request $request, $id){
